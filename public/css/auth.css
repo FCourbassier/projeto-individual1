@@ -1,0 +1,52 @@
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #eef5f5;
+  color: #172b3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.caixa {
+  background: white;
+  width: 100%;
+  max-width: 430px;
+  padding: 35px;
+  border-top: 6px solid #27a6aa;
+  border-radius: 6px;
+  box-shadow: 0 3px 18px #00000015;
+}
+.voltar { color: #147f88; text-decoration: none; font-size: 13px; }
+h1 { color: #102b46; margin-bottom: 8px; }
+.subtitulo { color: #687781; font-size: 14px; margin-bottom: 25px; }
+.campo { margin-bottom: 17px; }
+label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 6px; }
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd6d8;
+  border-radius: 4px;
+}
+input:focus { outline: 2px solid #9bd9d8; border-color: #27a6aa; }
+button[type="submit"] {
+  width: 100%;
+  padding: 13px;
+  background: #102b46;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+button[type="submit"]:hover { background: #1b506d; }
+.mensagem { display: none; padding: 10px; margin-bottom: 15px; font-size: 13px; border-radius: 4px; }
+.mensagem.visivel { display: block; }
+.erro { background: #ffe9e6; color: #9c3025; }
+.sucesso { background: #e4f5e9; color: #17663a; }
+.rodape-form { text-align: center; font-size: 13px; margin-top: 20px; }
+.rodape-form a { color: #147f88; font-weight: bold; }
+@media (max-width: 480px) { .caixa { padding: 25px 20px; } }

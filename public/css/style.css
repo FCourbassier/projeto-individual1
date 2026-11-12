@@ -1,0 +1,249 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #172b3d;
+  background-color: #ffffff;
+}
+
+.cabecalho {
+  background-color: #102b46;
+  color: white;
+  padding: 18px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  color: #f4c45e;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 8px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #f4c45e;
+}
+
+.botao-menu {
+  background-color: #f4c45e;
+  color: #102b46;
+  padding: 9px 13px;
+  border-radius: 4px;
+}
+
+.banner {
+  min-height: 420px;
+  background-image: linear-gradient(rgba(10, 35, 55, 0.55), rgba(10, 35, 55, 0.55)),
+    url("https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 40px 8%;
+  color: white;
+}
+
+.banner-conteudo {
+  max-width: 600px;
+}
+
+.banner h1 {
+  font-size: 46px;
+  margin-bottom: 10px;
+}
+
+.banner p {
+  font-size: 18px;
+}
+
+.botao {
+  display: inline-block;
+  background-color: #f4c45e;
+  color: #102b46;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 4px;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.secao {
+  padding: 55px 8%;
+  text-align: center;
+}
+
+.secao h2 {
+  color: #102b46;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.secao p {
+  line-height: 1.6;
+}
+
+.imagem-principal {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.informacoes {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.informacoes p {
+  background-color: #e8f5f4;
+  padding: 12px 16px;
+  border-radius: 4px;
+}
+
+.fundo-claro {
+  background-color: #f1f7f7;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  width: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px #00000015;
+  text-align: left;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3,
+.card p {
+  margin: 15px;
+}
+
+.card h3 {
+  color: #147f88;
+}
+
+footer {
+  background-color: #102b46;
+  color: white;
+  text-align: center;
+  padding: 22px;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .cabecalho {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+  }
+
+  .banner h1 {
+    font-size: 34px;
+  }
+
+  .secao {
+    padding: 40px 6%;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+/* PADRAO DE CORES DO SITE */
+
+body {
+    background-color: #102b46;
+    color: white;
+}
+
+/* Todas as secoes */
+.secao {
+    background-color: #102b46;
+    color: white;
+}
+
+/* Secoes que tinham fundo claro */
+.fundo-claro {
+    background-color: #102b46;
+    color: white;
+}
+
+/* Titulos e textos */
+.secao h2,
+.secao h3,
+.secao p {
+    color: white;
+}
+
+/* Cartoes de curiosidades e pontos turisticos */
+.card {
+    background-color: #1b3d5c;
+    color: white;
+    border: 1px solid #315575;
+    border-radius: 10px;
+}
+
+/* Textos dentro dos cartoes */
+.card h3,
+.card p {
+    color: white;
+}
+
+/* Informacoes sobre a Australia */
+.informacoes p {
+    background-color: #1b3d5c;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Rodape */
+footer {
+    background-color: #0b2035;
+    color: white;
+}

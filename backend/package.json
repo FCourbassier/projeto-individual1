@@ -1,0 +1,14 @@
+{
+  "name": "conheca-australia-api",
+  "version": "1.0.0",
+  "description": "API acadêmica para cadastro e login do projeto Conheça a Austrália",
+  "main": "app.js",
+  "scripts": { "start": "node app.js", "dev": "node --watch app.js" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}
