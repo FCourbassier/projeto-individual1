@@ -1,0 +1,89 @@
+/* Configuração geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho principal */
+.cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid black;
+    position: relative;
+}
+
+/* Espaço do futuro logo à esquerda */
+.logo {
+    width: 150px;
+    height: 80px;
+    border: 1px dashed gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Título no centro */
+.titulo {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Botões no canto superior direito */
+nav {
+    text-align: right;
+}
+
+/* Aparência dos botões */
+nav a {
+    display: inline-block;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 10px;
+    margin-left: 5px;
+}
+
+/* Efeito ao passar o mouse */
+nav a:hover {
+    background-color: lightgray;
+}
+
+/* Conteúdo principal */
+main {
+    margin: 20px;
+    padding: 10px;
+}
+
+/* Seções */
+section {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Espaços reservados para imagens */
+.imagem {
+    width: 400px;
+    max-width: 90%;
+    height: 200px;
+    border: 1px dashed gray;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border-top: 1px solid black;
+}
