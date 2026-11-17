@@ -1,30 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Conheça a Austrália</title>
   <link rel="stylesheet" href="css/auth.css">
 </head>
+
 <body>
+
   <main class="caixa">
+
     <a class="voltar" href="index.html">← Voltar ao início</a>
-    <h1>Login</h1>
-    <p class="subtitulo">Entre na sua conta.</p>
+
+    <h1>Bem-vindo </h1>
+
+    <p class="subtitulo">
+      
+      Entre na sua conta para explorar nosso conteúdo!
+    </p>
+
     <div id="mensagem" class="mensagem" role="alert"></div>
+
     <form id="formLogin">
+
       <div class="campo">
         <label for="email">E-mail</label>
-        <input type="email" id="email" required>
+        <input
+          type="email"
+          id="email"
+          placeholder="Ex.: maria@email.com"
+          required
+        >
+        <small>Digite o e-mail utilizado no seu cadastro.</small>
       </div>
+
       <div class="campo">
         <label for="senha">Senha</label>
-        <input type="password" id="senha" minlength="8" required>
+        <input
+          type="password"
+          id="senha"
+          placeholder="Digite sua senha"
+          minlength="8"
+          required
+        >
+        <small>Informe a senha que você criou ao cadastrar sua conta.</small>
       </div>
-      <button type="submit">Entrar</button>
+
+      <button type="submit">Entrar na minha conta</button>
+
     </form>
-    <p class="rodape-form">Ainda não tem cadastro? <a href="cadastro.html">Cadastre-se</a></p>
+
+    <p class="rodape-form">
+      Ainda não tem uma conta?
+      <a href="cadastro.html">Cadastre-se aqui</a>
+    </p>
+
   </main>
+
   <script src="js/auth.js"></script>
+
 </body>
 </html>

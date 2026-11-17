@@ -1,95 +1,70 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var bcrypt = require("bcryptjs");
 
-function autenticar(req, res) {
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
-    } else {
-
-        usuarioModel.autenticar(email, senha)
-            .then(
-                function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
-                    if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
-
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
-                    } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
-                    } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-                    }
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-
-}
-
-function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+async function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var cpf = req.body.cpfServer;
-    var fkEmpresa = req.body.idEmpresaVincularServer;
 
-    // Faça as validações dos valores
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (fkEmpresa == undefined) {
-        res.status(400).send("Sua empresa a vincular está undefined!");
-    } else {
+    if (!nome || !email || !senha) {
+        return res.status(400).send("Preencha todos os campos!");
+    }
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, fkEmpresa, cpf)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+    try {
+        var usuarios = await usuarioModel.buscarPorEmail(email);
+
+        if (usuarios.length > 0) {
+            return res.status(409).send("Este e-mail já está cadastrado!");
+        }
+
+        var senhaHash = await bcrypt.hash(senha, 10);
+
+        await usuarioModel.cadastrar(nome, email, senhaHash);
+
+        return res.status(201).send("Cadastro realizado com sucesso!");
+
+    } catch (erro) {
+        console.log("Erro ao cadastrar:", erro);
+        return res.status(500).send("Erro ao realizar cadastro.");
+    }
+}
+
+async function autenticar(req, res) {
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+
+    if (!email || !senha) {
+        return res.status(400).send("Preencha e-mail e senha!");
+    }
+
+    try {
+        var usuarios = await usuarioModel.buscarPorEmail(email);
+
+        if (usuarios.length !== 1) {
+            return res.status(401).send("E-mail ou senha inválidos.");
+        }
+
+        var usuario = usuarios[0];
+
+        var senhaValida = await bcrypt.compare(senha, usuario.senha);
+
+        if (!senhaValida) {
+            return res.status(401).send("E-mail ou senha inválidos.");
+        }
+
+        return res.status(200).json({
+            id: usuario.id,
+            nome: usuario.nome,
+            email: usuario.email
+        });
+
+    } catch (erro) {
+        console.log("Erro ao autenticar:", erro);
+        return res.status(500).send("Erro ao realizar login.");
     }
 }
 
 module.exports = {
-    autenticar,
-    cadastrar
-}
+    cadastrar,
+    autenticar
+};

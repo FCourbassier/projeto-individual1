@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Conheça a Austrália</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pesquisa.css">
 </head>
 <body>
   <header class="cabecalho">
@@ -14,6 +15,7 @@
       <a href="#sobre">Sobre</a>
       <a href="#curiosidades">Curiosidades</a>
       <a href="#pontos">Pontos turísticos</a>
+      <a href="#pesquisa">Pesquisa</a>
       <a href="login.html">Login</a>
       <a class="botao-menu" href="cadastro.html">Cadastro</a>
     </nav>
@@ -84,11 +86,30 @@
       </div>
     </section>
   </main>
+  <section class="pesquisa-banner" id="pesquisa">
+  <h1>O que você conhece sobre a Austrália?</h1>
+  <p>
+    Queremos conhecer sua opinião! Responda à nossa pesquisa anônima
+    e ajude a descobrir o que as pessoas sabem sobre a Austrália.
+  </p>
+</section>
+
+<section class="pesquisa-container">
+  <form id="formPesquisa">
+    <div id="perguntas">
+      <p>Carregando perguntas...</p>
+    </div>
+
+    <button type="submit" id="botaoEnviar">Enviar respostas</button>
+    <p id="mensagem"></p>
+  </form>
+</section>
 
   <footer>
-    <p>Conheça a Austrália | Felipe Courbassier | RA: 04262024</p>
+    <p>Conheça a Austrália | Felipe Courbassier | felipe.courbassier@sptech.school</p>
     <p>Projeto Individual — SPTech School</p>
   </footer>
   <script src="js/script.js"></script>
+  <script src="js/pesquisa.js"></script>
 </body>
 </html>

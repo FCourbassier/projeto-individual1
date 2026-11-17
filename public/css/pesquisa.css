@@ -1,0 +1,102 @@
+.pesquisa-banner {
+    background: linear-gradient(rgba(16, 43, 70, 0.85), rgba(16, 43, 70, 0.85)),
+        url("../assets/imgs/australia-fundo.jpeg") center/cover;
+    color: white;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.pesquisa-banner h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.pesquisa-banner p {
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.pesquisa-container {
+    max-width: 850px;
+    margin: 45px auto;
+    padding: 35px;
+    background: #fffaf2;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pergunta {
+    padding: 22px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.pergunta h2 {
+    color: #102B46;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.alternativa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    color: #333;
+    cursor: pointer;
+}
+
+.alternativa input {
+    accent-color: #D96B43;
+    width: 17px;
+    height: 17px;
+}
+
+.pergunta textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    font: inherit;
+}
+
+#botaoEnviar {
+    display: block;
+    margin: 30px auto 10px;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 8px;
+    background: #D96B43;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#botaoEnviar:hover {
+    background: #b94e2d;
+}
+
+#botaoEnviar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#mensagem {
+    text-align: center;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    .pesquisa-banner h1 {
+        font-size: 27px;
+    }
+
+    .pesquisa-container {
+        margin: 20px 12px;
+        padding: 20px;
+    }
+}
