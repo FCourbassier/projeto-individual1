@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Conheça a Austrália</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Dashboard - Conheça a Austrália</h1>
+        <p>Resultados da pesquisa</p>
+    </header>
+    <main>
+        <!-- Indicadores -->
+        <section class="indicadores">
+            <div class="card">
+                <h3>Cidade mais procurada</h3>
+                <p id="cidadeDestaque">Carregando...</p>
+            </div>
+            <div class="card">
+                <h3>Época preferida</h3>
+                <p id="epocaDestaque">Carregando...</p>
+            </div>
+            <div class="card">
+                <h3>Ponto turístico mais conhecido</h3>
+                <p id="pontoDestaque">Carregando...</p>
+            </div>
+            <div class="card">
+                <h3>Principal motivo da visita</h3>
+                <p id="motivoDestaque">Carregando...</p>
+            </div>
+        </section>
+        <!-- Gráficos e respostas abertas -->
+        <section class="conteudo-dashboard">
+            <div class="grafico">
+                <h2>Cidades que os participantes desejam visitar</h2>
+                <canvas id="graficoCidades"></canvas>
+            </div>
+            <div class="grafico">
+                <h2>Épocas preferidas para visitar</h2>
+                <canvas id="graficoEpocas"></canvas>
+            </div>
+            <div class="respostas">
+                <h2>O que mais atrai os participantes na Austrália?</h2>
+                <div id="listaRespostas">
+                    <p>Carregando respostas...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

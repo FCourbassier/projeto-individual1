@@ -97,7 +97,7 @@ if (formularioLogin) {
 
                 alert("Login realizado com sucesso! Bem-vindo(a), " + usuario.nome + "!");
 
-                // Futuramente podemos redirecionar para a página principal.
+               window.location.href = "dashboard.html";
             } else {
                 alert(resultado);
             }
