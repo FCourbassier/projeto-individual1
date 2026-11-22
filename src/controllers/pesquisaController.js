@@ -11,7 +11,7 @@ async function buscarPerguntas(req, res) {
         return res.status(500).send("Erro ao buscar perguntas da pesquisa.");
     }
 }
-
+ 
 async function enviarPesquisa(req, res) {
     var token = req.body.token;
     var respostasRecebidas = req.body.respostas;
